@@ -1,0 +1,35 @@
+server:
+  port: ${APP_PORT}
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    url: ${DB_URL}
+    user: ${DB_LOGIN}
+    password: ${DB_PASSWORD}
+    enabled: true
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_LOGIN}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /rest-api
+  swagger-ui:
+    path: /swagger-ui
+    urls:
+      - url: /rest-api
+        name: rest-api
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    guru.springframework.controllers: DEBUG
+    org.hibernate: DEBUG
+    ru.arseniy.testtaskapp: DEBUG
