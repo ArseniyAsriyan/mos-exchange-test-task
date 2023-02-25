@@ -15,12 +15,3 @@ services:
     volumes:
       - timescaledb:/var/lib/postgresql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
-#  adminer:
-#    image: adminer
-#    container_name: adminer
-#    restart: unless-stopped
-#    environment:
-#      - ADMINER_DEFAULT_SERVER=timescaledb
-#    ports:
-#      - 1000:8080
