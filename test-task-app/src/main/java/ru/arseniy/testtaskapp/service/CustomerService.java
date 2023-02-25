@@ -3,7 +3,6 @@ package ru.arseniy.testtaskapp.service;
 import ru.arseniy.testtaskapp.dto.BaseResponse;
 import ru.arseniy.testtaskapp.dto.CustomerDto;
 import ru.arseniy.testtaskapp.enums.XSourceTypeEnum;
-import ru.arseniy.testtaskapp.exceptions.RequestValidationException;
 
 import java.util.List;
 

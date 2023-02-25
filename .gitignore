@@ -1,0 +1,9 @@
+/test-task-db/target/classes/db/changelog/sql/001_customers.sql
+/test-task-db/target/classes/db/changelog/sql/002_insert_test_data.sql
+/test-task-db/target/classes/db/changelog/changelog.xml
+/test-task-db/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+/test-task-db/target/classes/ru/arseniy/testtaskapp/entity/CustomerEntity.class
+/test-task-db/target/classes/db/changelog/db.changelog-master.yaml
+/test-task-db/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+/test-task-db/target/maven-archiver/pom.properties
+/test-task-db/target/test-task-db-1.0-SNAPSHOT.jar
