@@ -41,7 +41,6 @@ public class CustomerServiceImpl implements CustomerService {
                 if (fieldValue == null) {
                     throw new RequestValidationException(xSourceType);
                 }
-
             }
         } finally {
             if (Objects.nonNull(field)) {
@@ -59,6 +58,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDto getCustomerById(Long customerId) {
         var customer = repository.findById(customerId);
+
         return mapper.entityToDto(
                 customer.orElseThrow(() -> new CustomerNotFoundException(customerId))
         );
@@ -66,13 +66,26 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDto> findByCustomerData(CustomerDto customer) {
+        validateFindByCustomerRequest(customer);
+
         var entities = repository.findCustomerByRepresentedData(customer);
         if (entities.size() == 0) {
             throw new CustomerNotFoundException(customer);
         }
+
         return entities.stream()
                 .map(mapper::entityToDto)
                 .collect(Collectors.toList());
+    }
+
+    private void validateFindByCustomerRequest(CustomerDto customer) {
+        if (Objects.nonNull(customer.getName()) &&
+                Objects.nonNull(customer.getSurname()) &&
+                Objects.nonNull(customer.getPatronymic()) &&
+                Objects.nonNull(customer.getPhoneNumber()) &&
+                Objects.nonNull(customer.getEmail())) {
+            throw new RequestValidationException();
+        }
     }
 
 }
